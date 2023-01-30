@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[Produit]
+(
+	[Id] INT NOT NULL IDENTITY, 
+	[Nom] NVARCHAR(128) NOT NULL,
+	[Prix] FLOAT NOT NULL,
+	[Creation] DATETIME2(0) NOT NULL
+		CONSTRAINT DF_Produit_Creation DEFAULT (SYSDATETIME())
+    CONSTRAINT [PK_Produit] PRIMARY KEY ([Id]),
+	[Descriptif] NVARCHAR(255) NULL, 
+    CONSTRAINT [UK_Produit_Nom] UNIQUE ([Nom])
+)
